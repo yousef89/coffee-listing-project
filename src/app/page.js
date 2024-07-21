@@ -7,7 +7,7 @@ import Card4 from "./cards/card4";
 import Card5 from "./cards/card5";
 import Card6 from "./cards/card6";
 import FetchData1 from "./cards/fetch";
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
 
@@ -45,23 +45,24 @@ export default function Home() {
   const cardData = (id) => data.find(item => item.id === id);
 
   return (
-    <div className="bg-[#131215] min-h-screen flex flex-col justify-start items-center">
-      <img src="bg-cafe.jpg" alt="cafe background" className="w-auto h-min"></img>
-
-      <div className="bg-[#1C1C1E] flex flex-col items-center font-sans px-[170px] rounded-[15px] pt-[60px] pb-[23px] absolute z-[1]">
-
+    <div className="min-h-screen flex flex-col items-center bg-[#131215]">
+      <img src="bg-cafe.jpg" alt="cafe background" className="absolute" />
+      
+      <div className="relative bg-[#1C1C1E] flex flex-col items-center font-sans rounded-[15px] w-[300px] pt-[30px] sm:w-[700px] lg:w-[1050px] sm:pt-[30px] mt-[60px]">
         <h1 className="text-white text-[32px] font-400">Our Collection</h1>
-        <p className="text-[#585C60] text-[16px] text-center w-[500px] font-600 pt-1">Introducing our Coffee Collection, 
+        <p className="text-[#585C60] text-[16px] text-center font-600 pt-1 px-[40px] lg:max-w-[600px]">
+          Introducing our Coffee Collection, 
           a selection of unique coffees from different
            roast types and origins, expertly roasted in 
-           small batches and shipped fresh weekly.</p>
+           small batches and shipped fresh weekly.
+        </p>
 
-        <div className="flex gap-4 items-center justify-center pt-5 pb-12">
-        <button className="text-white bg-[#6E757D] py-[8px] px-[14px] font-600 rounded-[8px] hover:bg-[#4a4e53] duration-500">All Products</button>
-        <button className="text-white font-600 py-[8px] px-[14px] rounded-[8px] hover:bg-[#6E757D] duration-500">Available Now</button>
+        <div className="flex gap-4 items-center justify-center py-6">
+          <button className="text-white bg-[#6E757D] py-[8px] px-[12px] font-600 rounded-[8px] hover:bg-[#4a4e53] duration-500">All Products</button>
+          <button className="text-white font-600 py-[8px] px-[12px] rounded-[8px] hover:bg-[#6E757D] duration-500">Available Now</button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pb-[56px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pb-[50px] px-[25px] sm:pb-[40px]">
           <Card1 {...cardData(1)} />
           <Card2 {...cardData(2)} />
           <Card3 {...cardData(3)} />

@@ -5,7 +5,7 @@ export default function Card2({ name, image, price, rating, votes }){
             <img src={image}alt="cappuccino" 
             className="w-auto h-min rounded-[10px]"></img>
             <div className="flex items-center pt-3">
-            <p className="text-white text-[15px]">{name}</p>
+            <p className="text-white text-[15px] min-w-[100px]">{name}</p>
             <p className="text-black text-[15px] ml-auto bg-[#BDE2CD] py-[2px] px-[8px] rounded-[8px]">{price}</p>
             </div>
             <div className="flex items-center text-[13px] pt-2">
