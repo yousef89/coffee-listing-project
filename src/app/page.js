@@ -1,12 +1,6 @@
 "use client"
 import Image from "next/image";
-import Card1 from "./cards/card1";
-import Card2 from "./cards/card2";
-import Card3 from "./cards/card3";
-import Card4 from "./cards/card4";
-import Card5 from "./cards/card5";
-import Card6 from "./cards/card6";
-import FetchData1 from "./cards/fetch";
+import Card from "./cards/card";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -32,6 +26,7 @@ export default function Home() {
         }
       } finally {
         setLoading(false);
+
       }
     }
 
@@ -41,15 +36,18 @@ export default function Home() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
-  // Store each data object by ID
-  const cardData = (id) => data.find(item => item.id === id);
-
+  console.log(data);
   return (
     <div className="min-h-screen flex flex-col items-center bg-[#131215]">
       <img src="bg-cafe.jpg" alt="cafe background" className="absolute" />
       
-      <div className="relative bg-[#1C1C1E] flex flex-col items-center font-sans rounded-[15px] w-[300px] pt-[30px] sm:w-[700px] lg:w-[1050px] sm:pt-[30px] mt-[60px]">
-        <h1 className="text-white text-[32px] font-400">Our Collection</h1>
+      <div className="relative bg-[#1C1C1E] flex flex-col items-center font-sans rounded-[15px] w-[300px] sm:w-[700px] lg:w-[1050px] sm:pt-[30px] mt-[60px] py-[40px] mb-12 z-[1]">
+
+      <svg className="absolute bottom-[1720px] sm:bottom-[950px] sm:left-[353px] md:bottom-[610px] md:left-[360px] lg:bottom-[680px] lg:left-[525px] z-[-1]" width="257" height="153" viewBox="0 0 257 153" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 71.8885C3.45531 57.3142 23.696 41.7169 33.6244 33.2805C66.0308 5.74397 114.381 -4.23546 155.905 5.8326C246.941 27.9052 154.103 161.746 80.308 136.587C52.5484 127.123 76.0283 89.2122 86.9341 76.2621C113.937 44.1978 164.916 27.0297 204.998 44.5915C239.889 59.8782 266.993 108.858 249.574 146.239C247.754 150.145 240.823 152.29 236.924 150.16C231.733 147.325 239.159 139.456 240.538 137.04" stroke="#302522" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+
+        <h1 className="text-white text-[32px] font-400 sm:pt-[40px] md:pt-[50px] lg:pt-[40px]">Our Collection</h1>
         <p className="text-[#585C60] text-[16px] text-center font-600 pt-1 px-[40px] lg:max-w-[600px]">
           Introducing our Coffee Collection, 
           a selection of unique coffees from different
@@ -62,13 +60,17 @@ export default function Home() {
           <button className="text-white font-600 py-[8px] px-[12px] rounded-[8px] hover:bg-[#6E757D] duration-500">Available Now</button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pb-[50px] px-[25px] sm:pb-[40px]">
-          <Card1 {...cardData(1)} />
-          <Card2 {...cardData(2)} />
-          <Card3 {...cardData(3)} />
-          <Card4 {...cardData(4)} />
-          <Card5 {...cardData(5)} />
-          <Card6 {...cardData(6)} />
+        <div className=" absolute top-[353px] right-[204px] sm:top-[288px] sm:right-[555px] md:top-[296px] md:right-[605px] lg:top-[289px] lg:right-[875px] bg-[#F6C768] text-black font-sans text-[12px] px-3 py-[2px] rounded-[20px]">
+          Popular
+        </div>
+        <div className=" absolute top-[610px] right-[204px] sm:top-[288px] sm:right-[264px] md:top-[296px] md:right-[378px] lg:top-[289px] lg:right-[583px] bg-[#F6C768] text-black font-sans text-[12px] px-3 py-[2px] rounded-[20px]">
+          Popular
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-[25px] sm:pb-[40px]">
+        {data.map((item) => (
+            <Card key={item.id} {...item} />
+          ))}
         </div>
       </div>
     </div>
