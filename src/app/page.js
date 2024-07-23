@@ -60,14 +60,8 @@ export default function Home() {
           <button className="text-white font-600 py-[8px] px-[12px] rounded-[8px] hover:bg-[#6E757D] duration-500">Available Now</button>
         </div>
 
-        <div className=" absolute top-[353px] right-[204px] sm:top-[288px] sm:right-[555px] md:top-[296px] md:right-[605px] lg:top-[289px] lg:right-[875px] bg-[#F6C768] text-black font-sans text-[12px] px-3 py-[2px] rounded-[20px]">
-          Popular
-        </div>
-        <div className=" absolute top-[610px] right-[204px] sm:top-[288px] sm:right-[264px] md:top-[296px] md:right-[378px] lg:top-[289px] lg:right-[583px] bg-[#F6C768] text-black font-sans text-[12px] px-3 py-[2px] rounded-[20px]">
-          Popular
-        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-[25px] sm:pb-[40px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-[25px] sm:pb-[40px]">
         {data.map((item) => (
             <Card key={item.id} {...item} />
           ))}
