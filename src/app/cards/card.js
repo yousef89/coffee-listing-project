@@ -3,7 +3,7 @@ export default function Card({ name, image, price, rating, votes , popular , ava
     return(
         <div className="font-sans font-semibold flex flex-col">
             <div className="relative">
-                <img src={image}alt="cappuccino" className="w-auto h-min rounded-[10px]"></img>
+                <img src={image}alt="cappuccino" className="w-auto h-min rounded-[10px] hover:opacity-60 duration-500"></img>
                 {popular == true ?(
                     <>
                         <div className="absolute bg-[#F6C768] text-[10px] top-2 left-2 py-[3px] px-3 rounded-[20px]">Popular</div>
